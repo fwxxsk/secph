@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Black & White Anime Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
 
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">SEC.PORT</div>
+
+  <nav id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#service">Service</a>
+    <a href="#project">Project</a>
+    <a href="#skill">Skill</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+</header>
+
+<!-- HOME -->
+<section id="home" class="section home">
+  <div class="home-content">
+    <h1>Hi, I'm <span>SEC</span></h1>
+    <p>Anime-style Developer • UI Designer • Student</p>
+
+    <div class="buttons">
+      <button class="btn">Hire Me</button>
+      <button class="btn">Download CV</button>
+    </div>
+  </div>
+
+  <div class="phone-frame">
+    <img class="phone-image"
+      src="https://i.imgur.com/your-anime-image.jpg"
+      alt="anime profile"/>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>About Me</h2>
+  <p class="fade">I build clean, aesthetic, interactive web experiences using HTML, CSS, and JS.</p>
+
+  <div class="stats">
+    <div><h3 class="counter" data-target="12">0</h3><p>Projects</p></div>
+    <div><h3 class="counter" data-target="3">0</h3><p>Years Learning</p></div>
+    <div><h3 class="counter" data-target="5">0</h3><p>Technologies</p></div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service" class="section">
+  <h2>Services</h2>
+
+  <div class="grid">
+    <div class="card">UI Design</div>
+    <div class="card">Frontend Dev</div>
+    <div class="card">Bot Scripts</div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project" class="section">
+  <h2>Projects</h2>
+
+  <div class="grid">
+    <div class="project-card">Portfolio Site</div>
+    <div class="project-card">Bot System</div>
+    <div class="project-card">Landing Page</div>
+  </div>
+</section>
+
+<!-- SKILL -->
+<section id="skill" class="section">
+  <h2>Skills</h2>
+
+  <div class="skill">
+    <p>HTML</p>
+    <div class="bar"><span data-width="90"></span></div>
+  </div>
+
+  <div class="skill">
+    <p>CSS</p>
+    <div class="bar"><span data-width="85"></span></div>
+  </div>
+
+  <div class="skill">
+    <p>JavaScript</p>
+    <div class="bar"><span data-width="70"></span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact Me</h2>
+
+  <form id="contactForm">
+    <input type="text" placeholder="Name" required />
+    <input type="email" placeholder="Email" required />
+    <textarea placeholder="Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 SEC.PORT</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
