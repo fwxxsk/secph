@@ -3,105 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
+  <title>skye | ganja.org</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      cursor: crosshair; /* Hacker style cursor */
     }
 
     body {
       height: 100vh;
-      background: #000;
+      background: #050505; /* Deep black */
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: Arial, sans-serif;
-      color: white;
+      font-family: 'Space Mono', monospace;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* Scanline effect over the whole screen */
+    body::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      z-index: 2;
+      background-size: 100% 2px, 3px 100%;
+      pointer-events: none;
     }
 
     .card {
       text-align: center;
-      padding: 30px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      width: 300px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.8);
+      width: 350px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .profile-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px auto;
     }
 
     .profile-pic {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: #222;
-      margin: 0 auto 15px auto;
-      border: 2px solid #444;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px; /* Squareish with slight round looks cleaner for this style */
+      object-fit: cover;
+      filter: grayscale(1) brightness(0.8) contrast(1.2);
+      border: 1px solid #333;
+      transition: 0.3s;
+    }
+
+    .profile-pic:hover {
+      filter: grayscale(0) brightness(1);
+      border-color: #fff;
     }
 
     .name {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 8px;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px rgba(255,255,255,0.5);
     }
 
     .bio {
-      font-size: 14px;
-      opacity: 0.7;
-      margin-bottom: 15px;
+      font-size: 11px;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    .dev-logo {
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
       font-size: 12px;
-      opacity: 0.5;
-      margin-top: 10px;
     }
 
-    /* Quote animation */
+    .links a {
+      color: #555;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .links a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    /* Glitch Animation for the quote */
     .quote {
-      margin-top: 20px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, black, white, black);
-      background-size: 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: reveal 3s infinite linear;
+      margin-top: 25px;
+      font-size: 10px;
+      color: #444;
+      text-transform: lowercase;
+      animation: flicker 2s infinite;
     }
 
-    @keyframes reveal {
-      0% {
-        background-position: 200%;
-      }
-      100% {
-        background-position: 0%;
-      }
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 22%, 24%, 55% { opacity: 0.2; }
     }
   </style>
 </head>
-
 <body>
 
   <div class="card">
-
-    <div class="profile-pic"></div>
+    <div class="profile-container">
+      <img src="5070ae891d4df317fe0b3e605238ad1d.jpg" class="profile-pic" alt="skye">
+    </div>
 
     <div class="name">skye</div>
 
     <div class="bio">
-      Short bio goes here.<br>
-      Developer • Creator • Learner
+      "silencing."<br>
+      /dev/null • philippines
     </div>
 
-    <div class="dev-logo">
-      ⚙ developer
+    <div class="links">
+      <a href="#">github</a>
+      <a href="#">discord</a>
+      <a href="#">projects</a>
     </div>
 
     <div class="quote">
-      ganja.org :p
+      ganja.xx — connection established
     </div>
-
   </div>
 
 </body>
