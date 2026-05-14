@@ -2,82 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Looking for something?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Page</title>
+
+  <!-- Anton Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
   <style>
-    body{
-      background:#0d1117;
-      color:white;
-      font-family:Arial;
-      padding:40px;
-      text-align:center;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .box{
-      max-width:700px;
-      margin:auto;
-      background:#161b22;
-      padding:25px;
-      border-radius:15px;
-      box-shadow:0 0 20px rgba(0,0,0,.5);
+    body {
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Anton', sans-serif;
     }
 
-    h1{
-      color:#58a6ff;
-    }
-
-    .info{
-      margin-top:20px;
-      text-align:left;
-      background:#0d1117;
-      padding:15px;
-      border-radius:10px;
-    }
-
-    p{
-      line-height:1.7;
+    h1 {
+      color: #fff;
+      font-size: 48px;
+      letter-spacing: 1px;
+      text-align: center;
     }
   </style>
 </head>
+
 <body>
+  <h1>Looking for something? :p</h1>
 
-<div class="box">
-  <h1>Nothing to see here</h1>
+  <script>
+    const supabaseUrl = "https://zjbbfonnwlouoodouvdl.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqYmJmb25ud2xvdW9vZG91dmRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3ODA3MjcsImV4cCI6MjA5NDM1NjcyN30.OFCc7RIpQRDkdAoQtUUVlI97floqRJTzK7KuUiWa0es";
 
-  <p>
-    This page demonstrates how websites can see some information
-    about visitors when they open links online.
-  </p>
+    const client = supabase.createClient(supabaseUrl, supabaseKey);
 
-  <div class="info" id="info">
-    Loading visitor information...
-  </div>
-</div>
+    // Example test log (optional)
+    async function testInsert() {
+      const { data, error } = await client
+        .from('visits')
+        .insert([{ event: "page_loaded" }]);
 
-<script>
-async function loadInfo() {
+      console.log(data, error);
+    }
 
-  const ipData = await fetch("https://ipapi.co/json/")
-    .then(res => res.json());
-
-  const browser = navigator.userAgent;
-  const platform = navigator.platform;
-  const time = new Date().toString();
-
-  document.getElementById("info").innerHTML = `
-    <b>IP Address:</b> ${ipData.ip}<br><br>
-    <b>City:</b> ${ipData.city}<br><br>
-    <b>Region:</b> ${ipData.region}<br><br>
-    <b>Country:</b> ${ipData.country_name}<br><br>
-    <b>Device:</b> ${platform}<br><br>
-    <b>Browser Info:</b><br>${browser}<br><br>
-    <b>Time Opened:</b><br>${time}
-  `;
-}
-
-loadInfo();
-</script>
-
+    testInsert();
+  </script>
 </body>
 </html>
