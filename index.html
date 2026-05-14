@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Page</title>
-
-  <!-- Anton Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
-  <!-- Supabase -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
 
   <style>
     * {
@@ -22,41 +14,95 @@
 
     body {
       height: 100vh;
-      background-color: #000;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Anton', sans-serif;
+      font-family: Arial, sans-serif;
+      color: white;
     }
 
-    h1 {
-      color: #fff;
-      font-size: 48px;
-      letter-spacing: 1px;
+    .card {
       text-align: center;
+      padding: 30px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      width: 300px;
+    }
+
+    .profile-pic {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #222;
+      margin: 0 auto 15px auto;
+      border: 2px solid #444;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .bio {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 15px;
+    }
+
+    .dev-logo {
+      font-size: 12px;
+      opacity: 0.5;
+      margin-top: 10px;
+    }
+
+    /* Quote animation */
+    .quote {
+      margin-top: 20px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, black, white, black);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: reveal 3s infinite linear;
+    }
+
+    @keyframes reveal {
+      0% {
+        background-position: 200%;
+      }
+      100% {
+        background-position: 0%;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>Looking for something? :p</h1>
 
-  <script>
-    const supabaseUrl = "https://zjbbfonnwlouoodouvdl.supabase.co";
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqYmJmb25ud2xvdW9vZG91dmRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3ODA3MjcsImV4cCI6MjA5NDM1NjcyN30.OFCc7RIpQRDkdAoQtUUVlI97floqRJTzK7KuUiWa0es";
+  <div class="card">
 
-    const client = supabase.createClient(supabaseUrl, supabaseKey);
+    <div class="profile-pic"></div>
 
-    // Example test log (optional)
-    async function testInsert() {
-      const { data, error } = await client
-        .from('visits')
-        .insert([{ event: "page_loaded" }]);
+    <div class="name">skye</div>
 
-      console.log(data, error);
-    }
+    <div class="bio">
+      Short bio goes here.<br>
+      Developer • Creator • Learner
+    </div>
 
-    testInsert();
-  </script>
+    <div class="dev-logo">
+      ⚙ developer
+    </div>
+
+    <div class="quote">
+      ganja.org :p
+    </div>
+
+  </div>
+
 </body>
 </html>
