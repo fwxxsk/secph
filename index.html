@@ -1,120 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="business">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Black & White Anime Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>sec | Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        lexend: ["Lexend", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="font-lexend">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-trail" id="cursor-trail"></div>
+    <div class="fx-layer" id="fx-layer" aria-hidden="true"></div>
+    <div class="mode-toast" id="mode-toast" aria-live="polite"></div>
 
-<body>
-
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="logo">SEC.PORT</div>
-
-  <nav id="navMenu">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#service">Service</a>
-    <a href="#project">Project</a>
-    <a href="#skill">Skill</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="menu-toggle" id="menuToggle">☰</div>
-</header>
-
-<!-- HOME -->
-<section id="home" class="section home">
-  <div class="home-content">
-    <h1>Hi, I'm <span>SEC</span></h1>
-    <p>Anime-style Developer • UI Designer • Student</p>
-
-    <div class="buttons">
-      <button class="btn">Hire Me</button>
-      <button class="btn">Download CV</button>
+    <div id="playing-notice" class="playing-notice" hidden aria-live="polite">
+        <span class="playing-dot" aria-hidden="true"></span>
+        <span class="playing-label">Playing</span>
+        <span class="playing-track" id="playing-detail">Lil XXEL - LMK</span>
     </div>
-  </div>
 
-  <div class="phone-frame">
-    <img class="phone-image"
-      src="https://i.imgur.com/your-anime-image.jpg"
-      alt="anime profile"/>
-  </div>
-</section>
+    <div id="entry-screen">
+        <div class="entry-inner">
+            <div class="entry-brand-row" aria-hidden="true">
+                <img src="ChatGPT_Image_Mar_15_2026_11_35_26_PM.png" alt="Album art" class="entry-album-image">
+                <h2 class="entry-brand-title">GANJA<span class="entry-brand-red">.ORG</span></h2>
+                <p class="entry-brand-subtitle">beyond &amp; above</p>
+            </div>
+            <div class="click-text">tap anywhere to enter</div>
+        </div>
+    </div>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p class="fade">I build clean, aesthetic, interactive web experiences using HTML, CSS, and JS.</p>
+    <audio id="bg-music" preload="auto" playsinline>
+        <source src="Lil XXEL - LMK (Official Audio).mp3" type="audio/mpeg">
+    </audio>
 
-  <div class="stats">
-    <div><h3 class="counter" data-target="12">0</h3><p>Projects</p></div>
-    <div><h3 class="counter" data-target="3">0</h3><p>Years Learning</p></div>
-    <div><h3 class="counter" data-target="5">0</h3><p>Technologies</p></div>
-  </div>
-</section>
+    <canvas id="star-canvas"></canvas>
+    <div class="bg-overlay"></div>
 
-<!-- SERVICE -->
-<section id="service" class="section">
-  <h2>Services</h2>
+    <div class="main-container" id="main-content">
+        <main class="w-full max-w-4xl px-4 mx-auto flex justify-center">
+            <section class="profile-card mx-auto">
+                <div class="avatar-container">
+                    <img src="https://postimg.cc/phnt9hc8" alt="Profile" class="avatar">
+                </div>
 
-  <div class="grid">
-    <div class="card">UI Design</div>
-    <div class="card">Frontend Dev</div>
-    <div class="card">Bot Scripts</div>
-  </div>
-</section>
+                <h1 class="name">sec</h1>
+                <p class="role-title">Developer</p>
 
-<!-- PROJECT -->
-<section id="project" class="section">
-  <h2>Projects</h2>
+                <div class="badges mt-7">
+                    <div class="badge"><i class="fa-solid fa-code"></i> Developer</div>
+                    <div class="badge"><i class="fa-solid fa-location-dot"></i> Philippines</div>
+                    <div class="badge"><i class="fa-solid fa-user"></i> 14y/o</div>
+                </div>
 
-  <div class="grid">
-    <div class="project-card">Portfolio Site</div>
-    <div class="project-card">Bot System</div>
-    <div class="project-card">Landing Page</div>
-  </div>
-</section>
+                <div class="links mt-8">
+                    <a href="https://discord.com/users/911sec" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        <i class="fa-brands fa-discord"></i> Discord
+                    </a>
+                    <a href="https://github.com/fwxxsk" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://t.me/sleepyces" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        <i class="fa-brands fa-telegram"></i> Telegram
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
 
-<!-- SKILL -->
-<section id="skill" class="section">
-  <h2>Skills</h2>
+    <a href="#" class="client-logo-link" aria-label="Client logo link placeholder">
+        <img src="ChatGPT_Image_Mar_19_2026_01_32_36_PM (1).png" alt="ARCS logo icon" class="client-logo-icon">
+    </a>
 
-  <div class="skill">
-    <p>HTML</p>
-    <div class="bar"><span data-width="90"></span></div>
-  </div>
-
-  <div class="skill">
-    <p>CSS</p>
-    <div class="bar"><span data-width="85"></span></div>
-  </div>
-
-  <div class="skill">
-    <p>JavaScript</p>
-    <div class="bar"><span data-width="70"></span></div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <h2>Contact Me</h2>
-
-  <form id="contactForm">
-    <input type="text" placeholder="Name" required />
-    <input type="email" placeholder="Email" required />
-    <textarea placeholder="Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-</section>
-
-<footer>
-  <p>© 2026 SEC.PORT</p>
-</footer>
-
-<script src="script.js"></script>
+    <footer class="site-footer">@911 // ROOTED FROM GANJA</footer>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
